@@ -18,4 +18,11 @@ public class AccountTest {
         account.deposit(2000);
         assertEquals(7000, account.balance);
     }
+
+    @Test 
+    void testDepositNegativeAmount() {
+        account.deposit(-10);
+        assertEquals(5000, account.balance);
+    }
+
 }
