@@ -1,0 +1,23 @@
+package dev.alejandra.models;
+
+public class Account {
+
+    protected double balance;
+    protected int numDeposits = 0;
+    protected int numWithdrawals = 0;
+    protected double annualRate;
+    protected double monthlyFee = 0.0;
+
+    public Account(double balance, double annualRate) {
+        this.balance = balance;
+        this.annualRate = annualRate;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            numDeposits++;
+        }
+    }
+
+}
