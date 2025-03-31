@@ -40,4 +40,12 @@ public class CurrentAccount extends Account {
         }
     }
 
+    @Override
+    public void print() {
+
+        System.out.printf("Balance: %.1f%n", balance);
+        System.out.printf("Monthly Fee: %.1f%n", monthlyFee);
+        System.out.printf("Total transactions: %d%n", numWithdrawals + numDeposits); // Mostrar el total de transacciones
+        System.out.printf("Overdraft: %.1f%n", overdraft); // Mostrar el sobregiro (inicialmente 0.0)
+    }
 }
