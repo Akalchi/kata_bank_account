@@ -19,4 +19,17 @@ public class SavingAccountTest {
          assertEquals(5000, account.balance);
      }
 
+     @Test
+     void testFeeForExtraWithdrawals() {
+         SavingAccount account = new SavingAccount(15000, 12);
+         account.withdraw(2000);
+         account.withdraw(2000);
+         account.withdraw(2000);
+         account.withdraw(2000);
+         account.withdraw(2000);
+         account.monthlyStatement();
+         assertEquals(4040, account.balance);
+         assertEquals(1000, account.monthlyFee);
+     } 
+
 }
