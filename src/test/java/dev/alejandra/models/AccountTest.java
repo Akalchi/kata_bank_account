@@ -37,4 +37,10 @@ public class AccountTest {
         assertEquals(5000, account.balance);
     }
 
+    @Test
+    void testCalculateMonthlyInterest() { 
+        account.calculateMonthlyInterest();
+        assertEquals(5020.83, account.balance, 0.1);
+    }
+
 }
