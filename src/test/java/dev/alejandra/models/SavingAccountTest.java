@@ -51,9 +51,8 @@ public class SavingAccountTest {
 
      account.print();
 
-     System.setOut(System.out); // Restaurar salida estándar
+     System.setOut(System.out); 
 
-     // Normalizar la salida eliminando saltos de línea adicionales y comparando sin caracteres invisibles
      String actualOutput = outputStream.toString().replace(",", ".").replaceAll("\\r\\n|\\r|\\n", "").trim();
      String expectedOutput = """
                              Balance: 4040.0
