@@ -25,4 +25,10 @@ public class AccountTest {
         assertEquals(5000, account.balance);
     }
 
+    @Test
+    void testWithdraw() {
+        account.withdraw(2000);
+        assertEquals(3000, account.balance);
+    }
+
 }
