@@ -32,4 +32,9 @@ public class Account {
         balance += monthlyInterest;
     }
 
+    public void monthlyStatement() {
+        balance -= monthlyFee;
+        calculateMonthlyInterest();
+    }
+
 }
