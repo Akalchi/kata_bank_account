@@ -24,4 +24,20 @@ public class CurrentAccount extends Account {
         }
     }
 
+    @Override
+    public void deposit(double amount) {
+        if (overdraft > 0) {
+            if(amount >= overdraft) {
+                amount -= overdraft;
+                overdraft = 0;
+                super.deposit(amount);
+            } else {
+                overdraft -= amount;
+                amount = 0;
+            }
+        }else {
+            super.deposit(amount);
+        }
+    }
+
 }
