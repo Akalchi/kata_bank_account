@@ -31,4 +31,10 @@ public class AccountTest {
         assertEquals(3000, account.balance);
     }
 
+    @Test
+    void testWithdrawInsufficientFunds() {
+        account.withdraw(6000);
+        assertEquals(5000, account.balance);
+    }
+
 }
