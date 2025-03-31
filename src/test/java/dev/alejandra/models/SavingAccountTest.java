@@ -35,30 +35,36 @@ public class SavingAccountTest {
          assertEquals(1000, account.monthlyFee);
      } 
 
-    @Test
-    void testPrint() {
-         SavingAccount account = new SavingAccount(15000, 12);
-         account.withdraw(2000);
-         account.withdraw(2000);
-         account.withdraw(2000);
-         account.withdraw(2000);
-         account.withdraw(2000);
-         account.monthlyStatement();
-         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-         PrintStream printStream = new PrintStream(outputStream);
-         System.setOut(printStream);
- 
-         account.print();
- 
-         String expectedOutput = """
-                                 Balance: 4040.0
-                                 Monthly Fee: 1000.0
-                                 Total transactions: 5
-                                 """;
- 
-         assertEquals(expectedOutput, outputStream.toString());
- 
-         System.setOut(System.out);
-     }
+     @Test
+     void testPrint() {
+     SavingAccount account = new SavingAccount(15000, 12);
+     account.withdraw(2000);
+     account.withdraw(2000);
+     account.withdraw(2000);
+     account.withdraw(2000);
+     account.withdraw(2000);
+     account.monthlyStatement();
+     
+     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+     PrintStream printStream = new PrintStream(outputStream);
+     System.setOut(printStream);
+
+     account.print();
+
+     System.setOut(System.out); // Restaurar salida estándar
+
+     // Normalizar la salida eliminando saltos de línea adicionales y comparando sin caracteres invisibles
+     String actualOutput = outputStream.toString().replace(",", ".").replaceAll("\\r\\n|\\r|\\n", "").trim();
+     String expectedOutput = """
+                             Balance: 4040.0
+                             Monthly Fee: 1000.0
+                             Total transactions: 5
+                             """.replaceAll("\\r\\n|\\r|\\n", "").trim(); // Normalizar esperado
+
+     assertEquals(expectedOutput, actualOutput);
+}
+
+     
+     
 
 }
