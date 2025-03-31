@@ -17,4 +17,11 @@ public class SavingAccount extends Account{
         }
     }
 
+    @Override
+     public void withdraw(double amount) {
+         if (active) {
+             super.withdraw(amount);
+         }
+     }
+
 }
