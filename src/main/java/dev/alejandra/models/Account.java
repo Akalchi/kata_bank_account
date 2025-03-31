@@ -37,4 +37,16 @@ public class Account {
         calculateMonthlyInterest();
     }
 
+    public void print() {
+       
+        StringBuilder output = new StringBuilder();
+        output.append("Balance: ").append(balance).append("\n");
+        output.append("Number of Deposits: ").append(numDeposits).append("\n");
+        output.append("Number of Withdrawals: ").append(numWithdrawals).append("\n");
+        output.append("Annual Rate: ").append(annualRate).append("\n");
+        output.append("Monthly Fee: ").append(monthlyFee).append("\n");
+    
+        System.out.print(output.toString());
+    }
+
 }
